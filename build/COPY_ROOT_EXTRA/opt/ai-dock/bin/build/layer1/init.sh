@@ -3,38 +3,64 @@
 # Use this layer to add nodes and models
 
 NODES=(
-    #"https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
+    "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+    "https://github.com/giriss/comfy-image-saver"
+    "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/theUpsider/ComfyUI-Logic"
+    "https://github.com/kijai/ComfyUI-Marigold"
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    "https://github.com/EllangoK/ComfyUI-post-processing-nodes"
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    "https://github.com/FizzleDorf/ComfyUI_FizzNodes"
+    "https://github.com/BlenderNeko/ComfyUI_TiledKSampler"
+    "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
+    "https://github.com/kohya-ss/ControlNet-LLLite-ComfyUI"
+    "https://github.com/AIrjen/OneButtonPrompt"
+    "https://github.com/chrisgoringe/cg-use-everywhere"
+    "https://github.com/BennyKok/comfyui-deploy"
+    "https://github.com/LucianoCirino/efficiency-nodes-comfyui"
+    "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
+    "https://github.com/Stability-AI/stability-ComfyUI-nodes"
+    "https://github.com/FlyingFireCo/tiled_ksampler"
+    "https://github.com/WASasquatch/was-node-suite-comfyui"
 )
 
 CHECKPOINT_MODELS=(
-    #"https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
-    #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/basic_model.safetensors"
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/vivid_model.safetensors"
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/sdxlUnstableDiffusers_unyieldingGrimoire.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
 
 LORA_MODELS=(
-    #"https://civitai.com/api/download/models/16576"
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/View360.safetensors"
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/MJ52.safetensors"
 )
 
 VAE_MODELS=(
-    #"https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/sdxl_vae.safetensors"
     #"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     #"https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
 )
 
 ESRGAN_MODELS=(
     #"https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
-    #"https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
-    #"https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
+    "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
+    "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
 )
 
 CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    #"https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
+    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
+    "https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
+    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
@@ -47,6 +73,14 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+)
+
+CUSTOM_NODE_LLLITE_MODELS=(
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/controlnetxlCNXL_bdsqlszMlsdV2.safetensors"
+)
+
+CUSTOM_NODE_ANIMATEDIFF_MODELS=(
+    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/v3_sd15_mm.ckpt"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
