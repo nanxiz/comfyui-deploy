@@ -72,7 +72,7 @@ services:
         # Don't enclose values in quotes
         - DIRECT_ADDRESS=${DIRECT_ADDRESS:-127.0.0.1}
         - DIRECT_ADDRESS_GET_WAN=${DIRECT_ADDRESS_GET_WAN:-false}
-        - WORKSPACE=${WORKSPACE:-/workspace}
+        - WORKSPACE=${WORKSPACE:-/runpod-volume}
         - WORKSPACE_SYNC=${WORKSPACE_SYNC:-false}
         - CF_TUNNEL_TOKEN=${CF_TUNNEL_TOKEN:-}
         - CF_QUICK_TUNNELS=${CF_QUICK_TUNNELS:-true}
