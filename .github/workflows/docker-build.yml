@@ -53,7 +53,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_SEC }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Set tags
         run: |
@@ -124,7 +124,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_SEC }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Set tags
         run: |
@@ -198,7 +198,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_SEC }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Set tags
         run: |
