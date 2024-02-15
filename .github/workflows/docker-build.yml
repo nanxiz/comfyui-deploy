@@ -74,7 +74,7 @@ jobs:
         with:
           context: build
           build-args: |
-            IMAGE_BASE=ghcr.io/nanxiz/${{ matrix.base }}:${{ matrix.pytorch }}-py${{ matrix.python }}-cpu-${{ env.UBUNTU_VERSION }}
+            IMAGE_BASE=ghcr.io/ai-dock/${{ matrix.base }}:${{ matrix.pytorch }}-py${{ matrix.python }}-cpu-${{ env.UBUNTU_VERSION }}
           push: true
           # Avoids unknown/unknown architecture and extra metadata
           provenance: false
@@ -145,7 +145,7 @@ jobs:
         with:
           context: build
           build-args: |
-            IMAGE_BASE=ghcr.io/nanxiz/${{ matrix.base }}:${{ matrix.pytorch }}-py${{ matrix.python }}-cuda-${{ matrix.cuda }}-${{ matrix.level }}-${{ env.UBUNTU_VERSION }}
+            IMAGE_BASE=ghcr.io/ai-dock/${{ matrix.base }}:${{ matrix.pytorch }}-py${{ matrix.python }}-cuda-${{ matrix.cuda }}-${{ matrix.level }}-${{ env.UBUNTU_VERSION }}
             PYTORCH_VERSION=${{ matrix.pytorch }}
           push: true
           provenance: false
@@ -219,7 +219,7 @@ jobs:
         with:
           context: build
           build-args: |
-            IMAGE_BASE=ghcr.io/nanxiz/${{ matrix.base }}:${{ matrix.pytorch }}-py${{ matrix.python }}-rocm-${{ matrix.rocm }}-${{ matrix.level }}-${{ env.UBUNTU_VERSION }}
+            IMAGE_BASE=ghcr.io/ai-dock/${{ matrix.base }}:${{ matrix.pytorch }}-py${{ matrix.python }}-rocm-${{ matrix.rocm }}-${{ matrix.level }}-${{ env.UBUNTU_VERSION }}
           push: true
           provenance: false
           tags: ${{ env.TAGS }}
