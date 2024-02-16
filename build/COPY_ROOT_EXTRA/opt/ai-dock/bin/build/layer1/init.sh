@@ -7,13 +7,13 @@ NODES=(
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
     "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
-    "https://github.com/giriss/comfy-image-saver"
+    #"https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+    #"https://github.com/giriss/comfy-image-saver"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
     "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/theUpsider/ComfyUI-Logic"
-    "https://github.com/kijai/ComfyUI-Marigold"
+    #"https://github.com/kijai/ComfyUI-Marigold"
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     "https://github.com/EllangoK/ComfyUI-post-processing-nodes"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
@@ -22,11 +22,11 @@ NODES=(
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
     "https://github.com/kohya-ss/ControlNet-LLLite-ComfyUI"
     "https://github.com/AIrjen/OneButtonPrompt"
-    "https://github.com/chrisgoringe/cg-use-everywhere"
+    #"https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/BennyKok/comfyui-deploy"
     "https://github.com/LucianoCirino/efficiency-nodes-comfyui"
     "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
-    "https://github.com/Stability-AI/stability-ComfyUI-nodes"
+    #"https://github.com/Stability-AI/stability-ComfyUI-nodes"
     "https://github.com/FlyingFireCo/tiled_ksampler"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
 )
@@ -87,7 +87,7 @@ CUSTOM_NODE_ANIMATEDIFF_MODELS=(
 
 function build_extra_start() {
     build_extra_get_nodes
-    
+
     build_extra_link_model_dir "/opt/storage/stable_diffusion/models/ckpt" "/runpod-volume/sd-models"
 
     build_extra_link_model_dir "/opt/storage/stable_diffusion/models/lora" "/runpod-volume/loras"
