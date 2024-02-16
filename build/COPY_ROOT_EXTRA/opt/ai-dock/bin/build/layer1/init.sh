@@ -5,7 +5,7 @@
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
-    "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
+    #"https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     #"https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
     #"https://github.com/giriss/comfy-image-saver"
@@ -32,15 +32,15 @@ NODES=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/basic_model.safetensors"
-    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/vivid_model.safetensors"
-    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/sdxlUnstableDiffusers_unyieldingGrimoire.safetensors"
+    #"https://huggingface.co/nanxiz/zcabnzh/resolve/main/basic_model.safetensors"
+    #"https://huggingface.co/nanxiz/zcabnzh/resolve/main/vivid_model.safetensors"
+    #"https://huggingface.co/nanxiz/zcabnzh/resolve/main/sdxlUnstableDiffusers_unyieldingGrimoire.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
 
 LORA_MODELS=(
-    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/View360.safetensors"
-    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/MJ52.safetensors"
+    #"https://huggingface.co/nanxiz/zcabnzh/resolve/main/View360.safetensors"
+    #"https://huggingface.co/nanxiz/zcabnzh/resolve/main/MJ52.safetensors"
 )
 
 VAE_MODELS=(
@@ -89,13 +89,24 @@ function build_extra_start() {
     build_extra_get_nodes
 
     #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/ckpt" "/runpod-volume/sd-models"
-    build_extra_link_model_dir "/opt/ComfyUI/models/checkpoints" "/runpod-volume/sd-models"
+    #build_extra_link_model_dir "/opt/ComfyUI/models/checkpoints" "/runpod-volume/sd-models"
 
     #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/lora" "/runpod-volume/loras"
-    build_extra_link_model_dir "/opt/ComfyUI/models/loras" "/runpod-volume/loras"
+    #build_extra_link_model_dir "/opt/ComfyUI/models/loras" "/runpod-volume/loras"
 
     #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/vae" "/runpod-volume/vae"
-    build_extra_link_model_dir "/opt/ComfyUI/models/vae" "/runpod-volume/vae"
+    #build_extra_link_model_dir "/opt/ComfyUI/models/vae" "/runpod-volume/vae"
+    build_extra_get_models \
+        "/opt/storage/stable_diffusion/models/ckpt" \
+        "${CHECKPOINT_MODELS[@]}"
+    
+    build_extra_get_models \
+        "/opt/storage/stable_diffusion/models/lora" \
+        "${LORA_MODELS[@]}"
+
+    build_extra_get_models \
+        "/opt/storage/stable_diffusion/models/vae" \
+        "${VAE_MODELS[@]}"
 
     build_extra_get_models \
         "/opt/storage/stable_diffusion/models/controlnet" \
