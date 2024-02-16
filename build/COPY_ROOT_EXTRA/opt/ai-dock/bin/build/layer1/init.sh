@@ -57,8 +57,8 @@ ESRGAN_MODELS=(
 
 CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    "https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
+    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
+    #"https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
     "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
@@ -87,18 +87,17 @@ CUSTOM_NODE_ANIMATEDIFF_MODELS=(
 
 function build_extra_start() {
     build_extra_get_nodes
-    build_extra_get_models \
-        "/opt/storage/stable_diffusion/models/ckpt" \
-        "${CHECKPOINT_MODELS[@]}"
-    build_extra_get_models \
-        "/opt/storage/stable_diffusion/models/lora" \
-        "${LORA_MODELS[@]}"
+    
+    build_extra_link_model_dir "/opt/storage/stable_diffusion/models/ckpt" "/runpod-volume/sd-models"
+
+    build_extra_link_model_dir "/opt/storage/stable_diffusion/models/lora" "/runpod-volume/loras"
+
+    build_extra_link_model_dir "/opt/storage/stable_diffusion/models/vae" "/runpod-volume/vae"
+
     build_extra_get_models \
         "/opt/storage/stable_diffusion/models/controlnet" \
         "${CONTROLNET_MODELS[@]}"
-    build_extra_get_models \
-        "/opt/storage/stable_diffusion/models/vae" \
-        "${VAE_MODELS[@]}"
+
     build_extra_get_models \
         "/opt/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
@@ -152,6 +151,17 @@ function build_extra_get_models() {
             printf "\n"
         done
     fi
+}
+
+# Create a symbolic link for a model directory
+function build_extra_link_model_dir() {
+    local target_dir="$1"
+    local source_dir="$2"
+
+    # Ensure the target directory is empty or does not exist
+    rm -rf "$target_dir"
+    # Create a symbolic link
+    ln -s "$source_dir" "$target_dir"
 }
 
 # Download from $1 URL to $2 file path
