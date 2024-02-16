@@ -24,7 +24,7 @@ NODES=(
     "https://github.com/AIrjen/OneButtonPrompt"
     #"https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/BennyKok/comfyui-deploy"
-    "https://github.com/LucianoCirino/efficiency-nodes-comfyui"
+    #"https://github.com/LucianoCirino/efficiency-nodes-comfyui"
     "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
     #"https://github.com/Stability-AI/stability-ComfyUI-nodes"
     "https://github.com/FlyingFireCo/tiled_ksampler"
@@ -88,11 +88,14 @@ CUSTOM_NODE_ANIMATEDIFF_MODELS=(
 function build_extra_start() {
     build_extra_get_nodes
 
-    build_extra_link_model_dir "/opt/storage/stable_diffusion/models/ckpt" "/runpod-volume/sd-models"
+    #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/ckpt" "/runpod-volume/sd-models"
+    build_extra_link_model_dir "/opt/ComfyUI/models/checkpoints" "/runpod-volume/sd-models"
 
-    build_extra_link_model_dir "/opt/storage/stable_diffusion/models/lora" "/runpod-volume/loras"
+    #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/lora" "/runpod-volume/loras"
+    build_extra_link_model_dir "/opt/ComfyUI/models/loras" "/runpod-volume/loras"
 
-    build_extra_link_model_dir "/opt/storage/stable_diffusion/models/vae" "/runpod-volume/vae"
+    #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/vae" "/runpod-volume/vae"
+    build_extra_link_model_dir "/opt/ComfyUI/models/vae" "/runpod-volume/vae"
 
     build_extra_get_models \
         "/opt/storage/stable_diffusion/models/controlnet" \
