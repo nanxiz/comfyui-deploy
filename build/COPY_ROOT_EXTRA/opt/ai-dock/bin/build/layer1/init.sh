@@ -44,15 +44,15 @@ LORA_MODELS=(
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/nanxiz/zcabnzh/resolve/main/sdxl_vae.safetensors"
+    #"https://huggingface.co/nanxiz/zcabnzh/resolve/main/sdxl_vae.safetensors"
     #"https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     #"https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
 )
 
 ESRGAN_MODELS=(
     #"https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
-    "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
-    "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
+    #"https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
+    #"https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
 )
 
 CONTROLNET_MODELS=(
@@ -60,7 +60,7 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
     #"https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
+    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
@@ -96,6 +96,7 @@ function build_extra_start() {
 
     #build_extra_link_model_dir "/opt/storage/stable_diffusion/models/vae" "/runpod-volume/vae"
     #build_extra_link_model_dir "/opt/ComfyUI/models/vae" "/runpod-volume/vae"
+
     build_extra_get_models \
         "/opt/storage/stable_diffusion/models/ckpt" \
         "${CHECKPOINT_MODELS[@]}"
@@ -147,6 +148,15 @@ function build_extra_get_nodes() {
             if [[ -e $requirements ]]; then
                 micromamba -n comfyui run ${PIP_INSTALL} -r "${requirements}"
             fi
+
+            if [[ "${repo}" == "https://github.com/kohya-ss/ControlNet-LLLite-ComfyUI" ]]; then
+                printf "Downloading additional model for LLLite node...\n"
+                provisioning_get_models "${path}/models" "${CUSTOM_NODE_LLLITE_MODELS[@]}"
+            fi
+            #if [[ "${repo}" == "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved" ]]; then
+            #    printf "Downloading additional model for Animatediff node...\n"
+            #    provisioning_get_models "${path}/models" "${CUSTOM_NODE_ANIMATEDIFF_MODELS[@]}"
+            #fi
         fi
     done
 }
@@ -168,15 +178,15 @@ function build_extra_get_models() {
 }
 
 # Create a symbolic link for a model directory
-function build_extra_link_model_dir() {
-    local target_dir="$1"
-    local source_dir="$2"
+#function build_extra_link_model_dir() {
+#    local target_dir="$1"
+#    local source_dir="$2"
 
     # Ensure the target directory is empty or does not exist
-    rm -rf "$target_dir"
+#    rm -rf "$target_dir"
     # Create a symbolic link
-    ln -s "$source_dir" "$target_dir"
-}
+#    ln -s "$source_dir" "$target_dir"
+#}
 
 # Download from $1 URL to $2 file path
 function build_extra_download() {

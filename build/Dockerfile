@@ -23,16 +23,9 @@ ENV MAMBA_DEFAULT_RUN="micromamba run -n $MAMBA_DEFAULT_ENV"
 COPY ./COPY_ROOT_EXTRA/ /
 RUN set -eo pipefail && /opt/ai-dock/bin/build/layer1/init.sh | tee -a /var/log/build.log
 
-# Ensure the target directories are empty or do not exist
-RUN rm -rf /opt/ComfyUI/models/checkpoints && \
-    rm -rf /opt/ComfyUI/models/loras && \
-    rm -rf /opt/ComfyUI/models/vae
-
-# Create symbolic links
-RUN ln -s /runpod-volume/sd-models /opt/ComfyUI/models/checkpoints && \
-    ln -s /runpod-volume/loras /opt/ComfyUI/models/loras && \
-    ln -s /runpod-volume/vae /opt/ComfyUI/models/vae
-
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
 # Keep init.sh as-is and place additional logic in /opt/ai-dock/bin/preflight.sh
-CMD ["init.sh"]
+#CMD ["init.sh"]
+CMD ["/start.sh"]
